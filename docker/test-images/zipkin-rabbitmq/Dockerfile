@@ -20,7 +20,7 @@ ARG alpine_version=3.19.0
 # We copy files from the context into a scratch container first to avoid a problem where docker and
 # docker-compose don't share layer hashes https://github.com/docker/compose/issues/883 normally.
 # COPY --from= works around the issue.
-FROM scratch as scratch
+FROM --platform=linux/arm64 scratch as scratch
 
 WORKDIR /docker-bin
 COPY build-bin/docker/docker-healthcheck /docker-bin/
