@@ -35,6 +35,9 @@ while [ "$timeout" -gt 0 ] && kill -0 ${temp_rabbitmq_pid} && ! rabbitmqctl stat
     timeout=$(($timeout - 1))
 done
 
+cat /var/log/rabbitmq/rabbit@buildkitsandbox.log
+cat /etc/rabbitmq/rabbitmq.conf
+
 echo "*** Adding zipkin queue"
 amqp-declare-queue -q zipkin
 
