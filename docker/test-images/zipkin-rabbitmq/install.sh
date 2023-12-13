@@ -23,7 +23,7 @@ mkdir -p /etc/rabbitmq/
 echo "loopback_users.guest = false" >> /etc/rabbitmq/rabbitmq.conf
 chown -R rabbitmq /var/lib/rabbitmq /etc/rabbitmq
 
-echo "classic_queue.default_version = 2" >> /etc/rabbitmq/rabbitmq.conf
+export RABBITMQ_FEATURE_FLAGS=classic_mirrored_queue_version,classic_queue_type_delivery_support,direct_exchange_routing_v2,feature_flags_v2,implicit_default_bindings,listener_records_in_ets,maintenance_mode_status,quorum_queue,restart_streams,stream_queue,stream_sac_coordinator_unblock_group,stream_single_active_consumer,tracking_records_in_ets,user_limits,virtual_host_metadata
 
 echo "*** Starting RabbitMQ"
 rabbitmq-server &
