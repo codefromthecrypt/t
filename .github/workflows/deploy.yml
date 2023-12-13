@@ -14,7 +14,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: macos-12
+    runs-on: ubuntu-22.04  # newest available distribution, aka jellyfish
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
