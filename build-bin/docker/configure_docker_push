@@ -29,6 +29,7 @@ if [ "${arch}" != "amd64" ]; then
 fi
 
 # Enable experimental features on the server (multi-arch)
+mkdir -p /etc/docker/
 touch /etc/docker/daemon.json
 echo '{ "experimental":true, "registry-mirrors": ["https://mirror.gcr.io"] }' | sudo tee /etc/docker/daemon.json
 
