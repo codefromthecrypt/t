@@ -1,0 +1,7 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+**
+
+!build-bin/docker/docker-healthcheck
+
+!docker/test-images/zipkin-rabbitmq/install.sh
+!docker/test-images/zipkin-rabbitmq/start-rabbitmq
