@@ -79,7 +79,7 @@ arch_tags=""
 for docker_arch in ${docker_archs}; do
   arch_tag=${docker_image}:${docker_tag0}-${docker_arch}
   echo "Building tag ${arch_tag}..."
-  docker build --pull ${docker_args} --network=host --platform linux/${docker_arch} --tag ${arch_tag} .
+  docker build --pull ${docker_args} --platform linux/${docker_arch} --tag ${arch_tag} .
   arch_tags="${arch_tags} ${arch_tag}"
 done
 
