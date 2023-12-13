@@ -23,6 +23,8 @@ jobs:
           # We push Javadocs to the gh-pages branch on commit.
           token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0  # allow build-bin/idl_to_gh_pages to get the full history
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       # Don't attempt to cache Docker. Sensitive information can be stolen
       # via forks, and login session ends up in ~/.docker. This is ok because
       # we publish DOCKER_PARENT_IMAGE to ghcr.io, hence local to the runner.

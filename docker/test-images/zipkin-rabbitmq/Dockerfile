@@ -20,14 +20,14 @@ ARG alpine_version=3.19.0
 # We copy files from the context into a scratch container first to avoid a problem where docker and
 # docker-compose don't share layer hashes https://github.com/docker/compose/issues/883 normally.
 # COPY --from= works around the issue.
-FROM --platform=linux/arm64 scratch as scratch
+FROM scratch as scratch
 
 WORKDIR /docker-bin
 COPY build-bin/docker/docker-healthcheck /docker-bin/
 COPY docker/test-images/zipkin-rabbitmq/start-rabbitmq /docker-bin/
 COPY docker/test-images/zipkin-rabbitmq/install.sh /install/
 
-FROM --platform=linux/arm64 ghcr.io/openzipkin/alpine:${alpine_version} as zipkin-rabbitmq
+FROM ghcr.io/openzipkin/alpine:${alpine_version} as zipkin-rabbitmq
 LABEL org.opencontainers.image.description="RabbitMQ on Alpine Linux"
 
 # Add HEALTHCHECK and ENTRYPOINT scripts into the default search path
