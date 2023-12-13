@@ -44,8 +44,6 @@ ENV RABBITMQ_SERVER_VERSION=$rabbitmq_version
 ARG rabbitmq_c_utils_version=0.13.0
 ENV RABBITMQ_C_UTILS_VERSION=$rabbitmq_c_utils_version
 
-ENV RABBITMQ_FEATURE_FLAGS=classic_mirrored_queue_version,classic_queue_type_delivery_support,direct_exchange_routing_v2,feature_flags_v2,implicit_default_bindings,listener_records_in_ets,maintenance_mode_status,quorum_queue,restart_streams,stream_queue,stream_sac_coordinator_unblock_group,stream_single_active_consumer,tracking_records_in_ets,user_limits,virtual_host_metadata
-
 COPY --from=scratch /install/install.sh /tmp/install/
 
 ARG USER=rabbitmq
