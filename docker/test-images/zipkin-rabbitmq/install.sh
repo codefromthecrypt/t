@@ -17,7 +17,6 @@ set -eux
 
 echo "*** Installing RabbitMQ"
 apk add --update --no-cache rabbitmq-server=~${RABBITMQ_SERVER_VERSION} rabbitmq-c-utils=~${RABBITMQ_C_UTILS_VERSION}
-rm -rf /var/lib/rabbitmq/*
 
 echo "*** Ensuring guest can access RabbitMQ from any hostname"
 mkdir -p /etc/rabbitmq/
