@@ -6,7 +6,7 @@ version=${1:-master}
 # testing images only push to ghcro.io
 export DOCKER_RELEASE_REPOS=ghcr.io
 # Don't attempt unfamiliar archs on test images
-export DOCKER_ARCHS="amd64 arm64"
+export DOCKER_ARCHS="arm64"
 
 for name in $(ls docker/test-images/*/Dockerfile|cut -f3 -d/); do
   DOCKER_FILE=docker/test-images/${name}/Dockerfile build-bin/docker/docker_push openzipkin/${name} ${version}
