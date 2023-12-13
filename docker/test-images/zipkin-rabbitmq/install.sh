@@ -23,6 +23,8 @@ mkdir -p /etc/rabbitmq/
 echo "loopback_users.guest = false" >> /etc/rabbitmq/rabbitmq.conf
 chown -R rabbitmq /var/lib/rabbitmq /etc/rabbitmq
 
+echo "classic_queue.default_version = 2" >> /etc/rabbitmq/rabbitmq.conf
+
 echo "*** Starting RabbitMQ"
 rabbitmq-server &
 temp_rabbitmq_pid=$!
