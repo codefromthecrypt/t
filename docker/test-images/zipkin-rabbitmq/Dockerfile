@@ -27,7 +27,7 @@ COPY build-bin/docker/docker-healthcheck /docker-bin/
 COPY docker/test-images/zipkin-rabbitmq/start-rabbitmq /docker-bin/
 COPY docker/test-images/zipkin-rabbitmq/install.sh /install/
 
-FROM --platform=$BUILDPLATFORM ghcr.io/openzipkin/alpine:${alpine_version} as zipkin-rabbitmq
+FROM --platform=linux/arm64 ghcr.io/openzipkin/alpine:${alpine_version} as zipkin-rabbitmq
 LABEL org.opencontainers.image.description="RabbitMQ on Alpine Linux"
 
 # Add HEALTHCHECK and ENTRYPOINT scripts into the default search path
